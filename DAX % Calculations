@@ -1,0 +1,8 @@
+Total Live Contacts % of Total Dials = 
+VAR __BASELINE_VALUE = SUM('Query1'[Total Live Contacts])
+VAR __VALUE_TO_COMPARE = SUM('Query1'[Total Dials])
+RETURN
+    IF(
+        NOT ISBLANK(__VALUE_TO_COMPARE) && __VALUE_TO_COMPARE <> 0,
+        DIVIDE(__BASELINE_VALUE, __VALUE_TO_COMPARE, 0)
+    )
