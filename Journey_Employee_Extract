@@ -1,0 +1,6 @@
+  SELECT ID, Username, EmployeeCode, IdNumber, FirstName, LastName, StartDate, State, TeamName,
+       (DATEDIFF(YEAR, [StartDate], GETDATE()) * 12) + 
+       DATEDIFF(MONTH, DATEADD(YEAR, DATEDIFF(YEAR, [StartDate], GETDATE()), [StartDate]), GETDATE()) AS [Tenure_in_Months]
+FROM [dbo].[vEmployeeView]
+WHERE TeamleaderId IN (1255, 573, 472, 465, 287, 255)
+  AND State = 'Live';
