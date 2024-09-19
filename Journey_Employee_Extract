@@ -1,4 +1,4 @@
-  SELECT ID, Username, EmployeeCode, IdNumber, FirstName, LastName, StartDate, State, TeamName,
+  SELECT ID, Username, EmployeeCode, IdNumber, CONCAT(FirstName, ' ', LastName) as [Full Name], StartDate, State, TeamName,
        (DATEDIFF(YEAR, [StartDate], GETDATE()) * 12) + 
        DATEDIFF(MONTH, DATEADD(YEAR, DATEDIFF(YEAR, [StartDate], GETDATE()), [StartDate]), GETDATE()) AS [Tenure_in_Months]
 FROM [dbo].[vEmployeeView]
